@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Appointment } from './Appointment';
 
@@ -10,6 +10,11 @@ import { Appointment } from './Appointment';
 export class AppointmentService {
 
   private BASE_URL = environment.API_URL;
+  private _refreshRequired = new Subject<void>();
+
+  get RefreshRequired(){
+    return this._refreshRequired;
+  }
 
   constructor(private http: HttpClient) { }
   
@@ -27,6 +32,7 @@ export class AppointmentService {
 
   //method cancelAppointment will cancel an appointment by sending a delete request to the api with an id
   cancelAppointment(id: string): Observable<any>{
+    this.RefreshRequired.next();
     return this.http.delete(`${this.BASE_URL}/appointments/${id}`);
   }
 }

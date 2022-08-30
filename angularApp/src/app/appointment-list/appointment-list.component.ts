@@ -18,8 +18,15 @@ export class AppointmentListComponent implements OnInit {
 
   constructor(private appointmentService: AppointmentService) { }
 
+  ngOnInit(): void {
+    this.appointmentService.RefreshRequired.subscribe(response => {
+      this.loadAppointments();
+    })
+    this.loadAppointments()
+  }
+
   //On init, load all the appointments from the service
-  ngOnInit() {
+  loadAppointments() {
     this.appointmentService.getAppointments()
       .subscribe((appointments: Appointment[]) =>{
         this.appointments = appointments;

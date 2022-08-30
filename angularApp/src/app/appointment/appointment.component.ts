@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Appointment } from '../Appointment';
+import { AppointmentListComponent } from '../appointment-list/appointment-list.component';
 import { AppointmentService } from '../appointment.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class AppointmentComponent implements OnInit {
   appointmentDate: string;
   name: string;
   email: string;
+  currentDate = new Date();
 
 
   //service injection allows us to use the service within appointment component
@@ -26,6 +28,7 @@ export class AppointmentComponent implements OnInit {
     this.errorMsg = '';
     this.appointmentService.createAppointment(this.appointmentDate, this.name, this.email)
       .subscribe((createdAppointment: Appointment) => {
+        this.appointmentService.RefreshRequired.next();
         //When succesfully created an appointment we want to reset the date,name and email fields to empty
         // this.appointmentDate = '';
         this.name = '';
