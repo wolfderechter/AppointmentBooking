@@ -4,7 +4,7 @@
 <div class="form-container">
     <form (submit)="createAppointment()">
         <mat-form-field>
-            <input [(ngModel)]="appointmentDate" name="appointmentDate" matInput [matDatepicker]="picker" [min]="currentDate" placeholder="Choose a date">
+            <input [(ngModel)]="appointmentDate" name="appointmentDate" matInput [matDatepicker]="picker" [matDatepickerFilter]="dateFilter" [min]="currentDate" placeholder="Choose a date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>

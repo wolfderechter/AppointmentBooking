@@ -1,19 +1,5 @@
 .appointments {
-    display: inline-flex;
-    width: 100%;
-    /* height: 800px; */
-}
-
-.appointments app-appointment {
-    /* border-right: 5px solid rgba(0, 0, 0, 0.539); */
-    width: 25%;
-    /* margin-left: auto;
-    margin-right: auto; */
-}
-
-.appointments app-appointment-list {
     margin-left: auto;
     margin-right: auto;
-    width: 69%;
-    height: 800px;
+    width: 25%;
 }

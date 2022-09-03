@@ -17,11 +17,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HomeComponent } from './home/home.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    AdminComponent,
     AppointmentComponent,
     AppointmentListComponent
   ],

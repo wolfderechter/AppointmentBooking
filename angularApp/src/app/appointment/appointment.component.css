@@ -3,6 +3,9 @@
     max-width: 350px;
 }
 
+mat-toolbar {
+    white-space: normal;
+}
 
 form {
     display: flex;

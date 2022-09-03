@@ -47,6 +47,7 @@ export class AppointmentListComponent implements OnInit {
       .subscribe((appointments: Appointment[]) => {
         this.appointments = appointments;
         this.successMsg = 'Successfully cancelled the appointment'
+        this.appointmentService.RefreshRequired.next();
       },
       (error: ErrorEvent) => {
         this.errorMsg = error.error.message;
