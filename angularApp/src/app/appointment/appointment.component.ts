@@ -49,6 +49,7 @@ export class AppointmentComponent implements OnInit {
     this.errorMsg = '';
     this.appointmentService.createAppointment(this.appointmentDate, this.name, this.email)
       .subscribe((createdAppointment: Appointment) => {
+        //mark the refreshrequired as true with next() so we know that the data has been changed
         this.appointmentService.RefreshRequired.next();
         //When succesfully created an appointment we want to reset the date,name and email fields to empty
         // this.appointmentDate = '';
